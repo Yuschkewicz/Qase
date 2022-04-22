@@ -5,7 +5,6 @@ import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 
 import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static org.testng.Assert.assertEquals;
 
@@ -16,9 +15,10 @@ public class QaseTests extends BaseTest {
         $("#createButton").shouldBe(Condition.visible);
 
     }
+
     @Test
-    public void secondtry(){
-        loginPage.login("1233@test.by","3454354");
+    public void secondtry() {
+        loginPage.login("1233@test.by", "3454354");
     }
 
     @Test
@@ -43,11 +43,12 @@ public class QaseTests extends BaseTest {
         newProjectPage.checkProject();
 
     }
+
     @Test
-    public void trySuiteAndCase(){
+    public void trySuiteAndCase() {
         loginPage.loginAndEnter();
         newProjectPage.createNewProject();
-                newProjectPage.openProject();
+        newProjectPage.openProject();
         newProjectPage.createNewSuite("Test project");
         newProjectPage.createNewCase();
     }

@@ -17,10 +17,9 @@ public class LoginPage extends BasePage {
         $("#btnLogin").click();
 
 
-
     }
 
-    public void login(String email,String password){
+    public void login(String email, String password) {
         open("login");
         $("#inputEmail").sendKeys(email);
         $("#inputPassword").sendKeys(password);
