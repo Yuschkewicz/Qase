@@ -16,6 +16,10 @@ public class QaseTests extends BaseTest {
         $("#createButton").shouldBe(Condition.visible);
 
     }
+    @Test
+    public void secondtry(){
+        loginPage.login("1233@test.by","3454354");
+    }
 
     @Test
     public void wrongEmail() {
