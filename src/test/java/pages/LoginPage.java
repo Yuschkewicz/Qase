@@ -18,7 +18,7 @@ public class LoginPage extends BasePage {
 
 
     }
-
+    @Step("login and open general page QASE.io using  email {EMAIL} and password {PASSWORD}")
     public void login(String email, String password) {
         open("login");
         $("#inputEmail").sendKeys(email);
@@ -27,20 +27,6 @@ public class LoginPage extends BasePage {
 
     }
 
-    @Step(" try to login with uncorrect email")
-    public void tryToSendWrongEmail() {
-        open("login");
-        $("#inputEmail").sendKeys("23@qwert.by");
-        $("#inputPassword").sendKeys(PASSWORD);
-        $("#btnLogin").click();
-    }
 
-    @Step("try to login with uncorrect password ")
-    public void tryToSendWrongPassword() {
-        open("login");
-        $("#inputEmail").sendKeys(EMAIL);
-        $("#inputPassword").sendKeys("PASSWORD");
-        $("#btnLogin").click();
 
-    }
 }

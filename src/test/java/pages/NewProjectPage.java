@@ -10,12 +10,12 @@ public class NewProjectPage extends BasePage {
 
 
     @Step("create new project ")
-    public void createNewProject() {
+    public void createNewProject(String projectName, String projectCode) {
 
         $("#createButton").click();
-        $("#inputTitle").sendKeys(PROJECT_NAME);
+        $("#inputTitle").sendKeys(projectName);
         $("#inputCode").clear();
-        $("#inputCode").sendKeys(PROJECT_CODE);
+        $("#inputCode").sendKeys(projectCode);
         $("#inputDescription").sendKeys("Write a few sentences about your project");
         $("#public-access-type").click();
         $(byText("Create project")).click();
@@ -39,10 +39,10 @@ public class NewProjectPage extends BasePage {
 
     }
 
-    public void createNewCase() {
+    public void createNewCase(String nameCase) {
         $("#create-case-button").click();
         $("#title").shouldBe(Condition.visible);
-        $("#title").sendKeys("Test name Case");
+        $("#title").sendKeys(nameCase);
         // $("#div[contains(@class,' css-io3r9z-singleValue')][1]").selectOption("Actual");
         //$("#div[contains(@class,'toastui-editor ww-mode')]//*[@class='empty-node']").sendKeys("test text description");
         $("#save-case").click();
