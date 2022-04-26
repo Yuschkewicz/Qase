@@ -19,15 +19,15 @@ public class QaseTests extends BaseTest {
 
 
     @Test
-    public void wrongEmail() {
-        loginPage.login("13@13.com","33monkey");
+    public void wrongEmail(String email,String password) {
+        loginPage.login(email,password);
         String alert = getWebDriver().findElement(By.xpath("//div[@class='form-control-feedback']")).getText();
         assertEquals(alert, "These credentials do not match our records.");
     }
 
     @Test
-    public void wrongPassword() {
-        loginPage.login("13@13.com","33monkey");
+    public void wrongPassword(String email,String password) {
+        loginPage.login(email,password);
         String alert = getWebDriver().findElement(By.xpath("//div[@class='form-control-feedback']")).getText();
         assertEquals(alert, "These credentials do not match our records.");
     }
@@ -35,7 +35,7 @@ public class QaseTests extends BaseTest {
 
     @Test
     public void createNewProject() {
-        loginPage.loginAndEnter();
+        loginPage.login(LoginPage.EMAIL,LoginPage.PASSWORD);
         newProjectPage.createNewProject("TSM","TSM17");
         newProjectPage.checkProject();
 
@@ -43,7 +43,7 @@ public class QaseTests extends BaseTest {
 
     @Test
     public void trySuiteAndCase() {
-        loginPage.loginAndEnter();
+        loginPage.login(LoginPage.EMAIL,LoginPage.PASSWORD);
         newProjectPage.createNewProject("TSM","TSM17");
         newProjectPage.openProject();
         newProjectPage.createNewSuite("Test project");
