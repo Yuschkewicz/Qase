@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.given;
 
-public class ProjectApiTest {
+public class ProjectApiTestTest {
 
     @Test
     public void createProjectStatus200(){

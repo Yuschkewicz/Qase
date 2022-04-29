@@ -2,14 +2,15 @@ package API;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
 import static io.restassured.RestAssured.given;
 
-public class BaseApi {
+public class BaseApiClient {
     RequestSpecification reqSpec;
     Gson gson = new GsonBuilder().create();
-    public BaseApi(){
+    public BaseApiClient(){
       reqSpec=
                 given().
                         header("token","cb0e7680a30c041c1b1e543758ec757bd449669c").
@@ -29,12 +30,14 @@ public class BaseApi {
 
     }
 
-    public void get(String uri){
+    public Response get(String Uri){
+        return
         reqSpec.
                 when().
-                get("https://api.qase.io/v1/"+ uri).
+                get("https://api.qase.io/v1/"+ Uri).
                 then().log().all().
-                statusCode(400);
+                statusCode(200).
+                extract().response();
     }
 
 }
